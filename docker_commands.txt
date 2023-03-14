@@ -9,3 +9,10 @@ docker rm $(docker ps -aq)
 
 # Remove all images
 docker rmi $(docker images -q)
+
+# Remove all unused containers/networks/images/volumes
+sudo docker system prune --all --volumes
+
+# Kills all running containers and removes all containers
+docker ps -aq | xargs docker rm -f
+
