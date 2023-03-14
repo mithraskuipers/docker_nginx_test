@@ -8,5 +8,5 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d/
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "30080:80"
     container_name: docker_nginx_test
