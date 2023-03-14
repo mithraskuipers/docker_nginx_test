@@ -1,0 +1,11 @@
+# Start Docker container in detached mode
+sudo docker-compose up -d
+
+# Stop all running containers
+docker stop $(docker ps -aq)
+
+# Remove all containers
+docker rm $(docker ps -aq)
+
+# Remove all images
+docker rmi $(docker images -q)
