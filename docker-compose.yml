@@ -1,12 +1,17 @@
 version: '3'
 
 services:
-  nginx:
-    image: nginx:stable-alpine
-    volumes:
-      - ./public:/var/www/public
-      - ./nginx/conf.d:/etc/nginx/conf.d/
-    restart: unless-stopped
-    ports:
-      - "80:80"
-    container_name: docker_nginx_test
+    nginx:
+        # On which Docker image should the service be based
+        image: nginx:stable-alpine
+        # Maps host directory with container directory
+        volumes:
+            - ./public:/var/www/public/
+            - ./nginx/conf.d:/etc/nginx/conf.d/
+            - /home/mikuiper/inception/srcs/requirements/tools:/etc/nginx/ssl/
+        restart: unless-stopped
+        # Maps the host port with the container port 
+        ports:
+            - "80:80"
+            - "443:443"
+        container_name: docker_nginx_test
